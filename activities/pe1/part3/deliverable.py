@@ -5,9 +5,9 @@ def steg_encode(msg, cover):
     for char in msg:
         charbin = format(ord(char),'0>8b')
         for index in range(8):
-            coverbinl = list(format(cover[coverindex],'0>8b'))
+            coverbinl = list(format(int(cover[coverindex]),'0>8b'))
             coverbinl[-1] = charbin[index]
-            cover[coverindex] = int(''.join(coverbinl),2)
+            cover[coverindex] = str(int(''.join(coverbinl),2))
             coverindex += 1
     #print(cover)
     '''LSB encodes a message
@@ -17,7 +17,7 @@ def steg_encode(msg, cover):
     Returns:
         None
     '''
-    pass
+    #pass
 
 def steg_decode(stego):
     begin = 0
