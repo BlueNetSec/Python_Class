@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 def q1(sentence):
+    lis = sentence.split(' ')[::-1]
+    return " ".join(lis)
     '''
     Given a string of multiple words separated by single spaces,
     return a new string with the sentence reversed. The words
@@ -11,6 +13,30 @@ def q1(sentence):
     pass
 
 def q2(n):
+    lis = []
+    b = str(n)
+    for c in b:
+        lis.append(c)
+    lis1 = lis[::-1]
+    
+    index = 0
+    for a in lis1:
+        print(a)
+        if (index == 3):
+            
+        '''
+        if index % 3 == 0:
+            print(index)
+            lis1.append(a)
+            lis1.append(',')
+            index = index + 1
+        else:
+            lis1.append(a)
+            index = index + 1
+        '''     
+    print(lis1)
+        
+    
     '''
     Given a positive integer, return its string representation with
     commas seperating groups of 3 digits. For example, given 65535
@@ -81,3 +107,6 @@ def q10(arr):
     None. For example, given [1,2,3,4,6,7], the returned value should be 6. 
     '''
     pass
+
+if __name__ == '__main__':
+    q2(1234567)
