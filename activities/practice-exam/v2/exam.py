@@ -1,3 +1,4 @@
+    
 #!/usr/bin/env python3
 
 def q1(sentence):
@@ -13,28 +14,7 @@ def q1(sentence):
     pass
 
 def q2(n):
-    lis = []
-    b = str(n)
-    for c in b:
-        lis.append(c)
-    lis1 = lis[::-1]
-    
-    index = 0
-    for a in lis1:
-        print(a)
-        if (index == 3):
-            
-        '''
-        if index % 3 == 0:
-            print(index)
-            lis1.append(a)
-            lis1.append(',')
-            index = index + 1
-        else:
-            lis1.append(a)
-            index = index + 1
-        '''     
-    print(lis1)
+    return str(format(n,',d'))
         
     
     '''
@@ -45,8 +25,12 @@ def q2(n):
     pass
 
 def q3(lst0, lst1):
+
+
+    return sorted(lst0 + lst1)[::-1]
+
     '''
-    Given two lists of integers, return a sorted list that contains
+    Given two list  s of integers, return a sorted list that contains
     all integers from both lists in descending order. For example,
     given [3,4,9] and [8,1,5] the returned list should be [9,8,5,4,3,1].
     The returned list may contain duplicates.
@@ -54,6 +38,11 @@ def q3(lst0, lst1):
     pass
 
 def q4(s1,s2,s3):
+    avg = int((s1 + s2 + s3)/3)
+    if avg > 50:
+        return 'GO'
+    else:
+        return 'NOGO'
     '''
     Given 3 scores in the range [0-100] inclusive, return 'GO' if
     the average score is greater than 50. Otherwise return 'NOGO'.
@@ -62,6 +51,15 @@ def q4(s1,s2,s3):
 
 def q5(integer, limit):
     '''
+    a = integer*2
+    lis = [0, a]
+    mul = 2
+    while (a * mul <= limit):
+        lis.append(a * mul)
+        mul = mul + 1
+    return lis
+   '''
+    '''
     Given an integer and limit, return a list of even multiples of the
     integer up to and including the limit. For example, if integer==3 and
     limit==30, the returned list should be [6,12,18,24,30].
@@ -69,6 +67,8 @@ def q5(integer, limit):
     pass
 
 def q6(f0, f1):
+    #line0 = 0
+    #line1 = 0
     '''
     Given two filenames, return a list whose elements consist of line numbers
     for which the two files differ. The first line is considered line 0.
@@ -76,6 +76,7 @@ def q6(f0, f1):
     pass
 
 def q7(lst):
+
     '''
     Given a list of integers, return the first value that is duplicated.
     For example, if given [5,7,9,1,3,7,9,5], the returned value should
@@ -84,6 +85,8 @@ def q7(lst):
     pass
 
 def q8(strng):
+    return(len(min(strng.split(' '),key=len)))
+
     '''
     Given a sentence as a string with words being separated by a single space,
     return the length of the shortest word.
@@ -101,6 +104,13 @@ def q9(strng):
     pass
 
 def q10(arr):
+    for i in range(len(arr)):
+        if arr[i] + 1 != arr[i+1]:
+            return (arr[i+1])
+        elif i == len(arr):
+            return None
+            #print(arr[i])
+            #print('the end of array')
     '''
     Given a list of positive integers sorted in ascending order, return
     the first non-consecutive value. If all values are consecutive, return
@@ -109,4 +119,9 @@ def q10(arr):
     pass
 
 if __name__ == '__main__':
-    q2(1234567)
+    #q2(1234567)
+    #q3([1,3,5],[2,7,8])
+    #q5(3,30)
+    #q7([5,7,9,1,3,7,9,5])
+    #q8('yo AM not HERE who is fucked')
+    q10([1,2,3,4,6,7])
