@@ -11,12 +11,12 @@ def approximate_pi(count):
         int: calculated approximation of PI
     '''
     hit = 0
-    for i = range(count):
+    for i in range(count):
         x = (random.random()*2)-1.0
         y = (random.random()*2)-1.0
         if ((x**2)+(y**2))**0.5 <= 1.0:
             hit += 1
-    return hit//count*4
+    return hit/count*4
 
 
 def letter_count(txt):
@@ -29,7 +29,10 @@ def letter_count(txt):
     '''
     counts = dict()
     for letter in txt:
-        counts[letter] += 1
+        if letters in counts:
+            counts[letter] += 1
+        else:
+            counts[letter] = 1
     return counts
 
 
@@ -50,8 +53,8 @@ def cut(filename, delimeter=':'):
         [['1','2','3'], ['4','5','6'], ['7','8','9']]
     '''
     data = []
-    with open('filename','r') as fp:
-        data.append([line.strip().split(delimeter) for line in fp.readlines()])
+    with open(filename,'r') as fp:
+        data.extend([line.strip().split(delimeter) for line in fp.readlines()])
     return data
 
 # Exception: AttributeError
@@ -65,7 +68,7 @@ def is_intersecting(c0,c1):
         bool: True if the given circles intersect, otherwise False
     '''
     distance = math.sqrt( (c1.x - c0.x)**2 + (c1.y - c0.y)**2 )
-    sum_of_radii = c0.radii + c1.radii
+    sum_of_radii = c0.radius + c1.radius
     if distance < sum_of_radii:
         return True
     else:
@@ -82,11 +85,11 @@ def bubble_sort(l):
         None
     '''
     newlist = l[:]
-    for sortpass in range(len(l),0,-1):
+    for sortpass in range(len(l)-1,0,-1):
         for index in range(sortpass):
             if newlist[index] > newlist[index+1]:
                 newlist[index], newlist[index+1] = newlist[index+1], newlist[index]
-        return newlist
+    return newlist
 
 if __name__ == '__main__':
     pass
