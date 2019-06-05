@@ -76,7 +76,12 @@ def q6(f0, f1):
     pass
 
 def q7(lst):
-
+    l = []
+    for i in lst:
+        if i in l:
+            return i
+        l.add(i)
+    return None
     '''
     Given a list of integers, return the first value that is duplicated.
     For example, if given [5,7,9,1,3,7,9,5], the returned value should
