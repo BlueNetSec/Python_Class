@@ -84,12 +84,14 @@ def q6(f0, f1):
     pass
 
 def q7(lst):
-    l = []
+    seen = set()
     for i in lst:
-        if i in l:
+        if i in seen:
             return i
-        l.add(i)
-    return None
+        seen.add(i)
+        
+    return -1
+  
     '''
     Given a list of integers, return the first value that is duplicated.
     For example, if given [5,7,9,1,3,7,9,5], the returned value should
@@ -107,6 +109,11 @@ def q8(strng):
     pass
 
 def q9(strng):
+    digits = []
+    for c in strng:
+        if c.isdigit():
+            digits.append(c)
+    return chr(int(''.join(digits)))
     '''
     Given an alphanumeric string, return the character whose ascii value
     is that of the integer represenation of all of the digits in the string
