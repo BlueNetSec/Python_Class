@@ -50,6 +50,7 @@ def q4(s1,s2,s3):
     pass
 
 def q5(integer, limit):
+    return [i for i in range(limit+1) if(1%j teger==0) and (i%2==0)]
     '''
     a = integer*2
     lis = [0, a]
@@ -69,6 +70,13 @@ def q5(integer, limit):
 def q6(f0, f1):
     #line0 = 0
     #line1 = 0
+    with open(f0) as file0, open(f1) as file1:
+        for l0,l1 in zip(file0,file1):
+            if l0 != l1:
+                diffs.append(ln)
+             ln += 1
+    return diffs
+        
     '''
     Given two filenames, return a list whose elements consist of line numbers
     for which the two files differ. The first line is considered line 0.
